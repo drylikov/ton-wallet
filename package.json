@@ -1,0 +1,35 @@
+{
+  "name": "ton-wallet",
+  "version": "1.0.0",
+  "description": "TON Wallet",
+  "main": "index.js",
+  "devDependencies": {
+    "del": "^3.0.0",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-concat-css": "^2.3.0",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-delete-lines": "^0.0.7",
+    "gulp-rename": "^2.0.0",
+    "gulp-replace": "^1.0.0",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11",
+    "natives": "^1.1.6"
+  },
+  "scripts": {
+    "build:contentscript": "sed -e \"/%%PROVIDER_CODE%%/r src/tonProvider.js\" -e \"//d\" src/contentscript.js.tpl > src/contentscript.js",
+    "build": "npm run build:contentscript && gulp && npx webpack --mode=none",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toncenter/ton-wallet"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/toncenter/ton-wallet/issues"
+  },
+  "homepage": "https://tonwallet.me"
+}
